@@ -80,6 +80,12 @@
       text-decoration: underline;
     }
 
+    .counter {
+      color: #f39c12;
+      font-size: 20px;
+      margin-top: 30px;
+    }
+
     @media (max-width: 600px) {
       header img {
         width: 180px;
@@ -114,9 +120,31 @@
 
   <button onclick="window.location.href='page2.html'">Commencer à télécharger une image</button>
 
+  <div class="counter">
+    <p>Le site est en ligne depuis : <span id="counter">00 jours 00 heures 00 minutes 00 secondes</span></p>
+  </div>
+
   <footer>
     <p>&copy; 2024 Marc-Tech. <a href="https://www.instagram.com/j.m.h.2024" target="_blank">Suivez-nous sur Instagram pour des mises à jour!</a></p>
   </footer>
+
+  <script>
+    let startTime = new Date().getTime();
+
+    function updateCounter() {
+      let currentTime = new Date().getTime();
+      let elapsedTime = currentTime - startTime;
+
+      let days = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((elapsedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
+
+      document.getElementById("counter").innerHTML = `${days} jours ${hours} heures ${minutes} minutes ${seconds} secondes`;
+    }
+
+    setInterval(updateCounter, 1000);
+  </script>
 
 </body>
 </html>
