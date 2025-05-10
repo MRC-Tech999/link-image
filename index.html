@@ -123,6 +123,15 @@
       text-decoration: underline;
     }
 
+    .copy-success {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: none;
+    }
+
     @media (max-width: 600px) {
       header img {
         width: 180px;
@@ -159,28 +168,16 @@
 
   <div class="result" id="result"></div>
 
+  <div class="copy-success" id="copySuccess">
+    <p>Lien copié avec succès !</p>
+  </div>
+
   <footer>
     <p>&copy; 2024 Marc-Tech. <a href="https://www.instagram.com/j.m.h.2024" target="_blank">Suivez-moi sur Instagram pour les mises à jour!</a></p>
   </footer>
 
   <script>
-    let startTime = localStorage.getItem("startTime") ? parseInt(localStorage.getItem("startTime")) : new Date().getTime();
-
-    function updateCounter() {
-      let currentTime = new Date().getTime();
-      let elapsedTime = currentTime - startTime;
-
-      let days = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
-      let hours = Math.floor((elapsedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
-
-      document.getElementById("counter").innerHTML = `${days} jours ${hours} heures ${minutes} minutes ${seconds} secondes`;
-    }
-
-    setInterval(updateCounter, 1000);
-
-    function uploadImage() {
+    async function uploadImage() {
       const input = document.getElementById('fileInput');
       const file = input.files[0];
 
@@ -220,7 +217,10 @@
 
     function copyLink(url) {
       navigator.clipboard.writeText(url).then(() => {
-        alert("Lien copié dans le presse-papier !");
+        document.getElementById('copySuccess').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('copySuccess').style.display = 'none';
+        }, 2000);
       });
     }
   </script>
