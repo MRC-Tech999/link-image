@@ -13,62 +13,59 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 30px;
+      padding: 20px;
       background-color: #121212;
       color: #fff;
       text-align: center;
+      overflow-x: hidden;
     }
 
     header img {
-      width: 220px;
+      width: 150px;
       max-width: 100%;
       height: auto;
     }
 
     h2 {
       color: #4CAF50;
-      font-size: 28px;
+      font-size: 24px;
       margin: 20px 0;
     }
 
     p.description {
       color: #aaa;
-      font-size: 16px;
-      margin-bottom: 30px;
-      max-width: 700px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      max-width: 600px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .social-button img {
-      width: 50px;
-      height: 50px;
-      margin-top: 20px;
-      transition: transform 0.3s;
-    }
-
-    .social-button img:hover {
-      transform: scale(1.1);
-    }
-
     button {
-      padding: 12px 30px;
-      font-size: 18px;
+      padding: 12px 25px;
+      font-size: 16px;
       background-color: #4CAF50;
       color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s;
+      margin-top: 20px;
     }
 
     button:hover {
       background-color: #45a049;
     }
 
+    .counter {
+      color: #f39c12;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
     footer {
       margin-top: 40px;
-      font-size: 14px;
+      font-size: 12px;
       color: #777;
     }
 
@@ -80,23 +77,17 @@
       text-decoration: underline;
     }
 
-    .counter {
-      color: #f39c12;
-      font-size: 20px;
-      margin-top: 30px;
-    }
-
     @media (max-width: 600px) {
       header img {
-        width: 180px;
-      }
-
-      .social-button img {
-        width: 40px;
+        width: 120px;
       }
 
       button {
         width: 100%;
+      }
+
+      .counter {
+        font-size: 12px;
       }
     }
   </style>
@@ -112,11 +103,9 @@
     Partagez vos images facilement pour vos projets de développement web et bien plus encore. Utilisez notre plateforme pour obtenir des liens directs vers vos images et intégrer facilement des ressources dans vos applications ou sites.
   </p>
 
-  <a href="https://www.instagram.com/j.m.h.2024" class="social-button" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+  <a href="https://www.instagram.com/j.m.h.2024" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 50px; margin-top: 20px;">
   </a>
-
-  <br />
 
   <button onclick="window.location.href='page2.html'">Commencer à télécharger une image</button>
 
