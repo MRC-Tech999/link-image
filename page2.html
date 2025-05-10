@@ -97,6 +97,11 @@
       text-decoration: underline;
     }
 
+    .logo {
+      width: 100%;
+      margin-top: 30px;
+    }
+
     @media (max-width: 600px) {
       header img {
         width: 180px;
@@ -129,6 +134,8 @@
     <p>&copy; 2024 Marc-Tech. <a href="https://www.instagram.com/j.m.h.2024" target="_blank">Suivez-nous sur Instagram pour des mises à jour!</a></p>
   </footer>
 
+  <img src="https://i.ibb.co/zHFCB2LB/33b17857-57d2-41f0-aa91-117213f3adfd.jpg" alt="Logo" class="logo" />
+
   <script>
     async function uploadImage() {
       const input = document.getElementById('fileInput');
@@ -157,9 +164,10 @@
             <img src="${d.url}" alt="Image uploadée">
             <p><strong>Lien direct :</strong> <a href="${d.url}" target="_blank">${d.url}</a></p>
             <p><strong>Taille :</strong> ${(d.size / 1024).toFixed(2)} KB</p>
-            <p><strong>Date :</strong> ${new Date(d.time).toLocaleString()}</p>
+            <p><strong>Date :</strong> ${new Date(d.time).toLocaleDateString()}</p>
+            <p><strong>Heure :</strong> ${new Date(d.time).toLocaleTimeString()}</p>
             <br />
-            <button onclick="copyLink('${d.url}')">Obtenir le lien</button>
+            <button onclick="copyLink('${d.url}')">copiez le lien</button>
           `;
         } else {
           document.getElementById('result').innerHTML = "<p>Échec de l'envoi.</p>";
